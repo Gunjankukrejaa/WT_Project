@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #D1B3FF; /* Background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 300px; /* Set maximum width */
+            width: 100%; /* Ensure responsiveness */
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #5D3587; /* Text color */
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: calc(100% - 30px); /* Adjust width */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #5D3587; /* Border color */
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .login-container button {
+            background-color: #5D3587; /* Button background color */
+            color: #fff; /* Button text color */
+            padding: 10px 15px; /* Adjust padding */
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: calc(100% - 30px); /* Adjust width */
+        }
+        .login-container button:hover {
+            opacity: 0.8;
+        }
+        .back-button {
+            margin-top: 20px;
+        }
+        .back-button a {
+            color: #5D3587; /* Link color */
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .back-button a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Teaching staff Login</h2>
+        <form id="loginForm" action="teacher_login_process.php" method="POST">
+            <input type="text" id="username" name="username" placeholder="Username (name.prn@viit.ac.in)" required>
+            <span id="usernameError" class="error-message"></span>
+            <input type="password" id="password" name="password" placeholder="Password (At least 6 characters)" required>
+            <span id="passwordError" class="error-message"></span>
+            <button type="submit">Login</button>
+        </form>
+        <div class="back-button">
+            <a href="startingpage.html">Back to Homepage</a>
+        </div>
+    </div>
+
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#loginForm').submit(function(e){
+                e.preventDefault(); // Prevent form submission
+
+                var username = $('#username').val();
+                var password = $('#password').val();
+                var usernamePattern = /^[a-zA-Z0-9._]+@viit\.ac\.in$/;
+                var passwordPattern = /^.{6,}$/;
+                var valid = true;
+
+                if (!usernamePattern.test(username)) {
+                    $('#usernameError').text("Invalid username format. Please enter a valid username in the format 'name.prn@viit.ac.in'.");
+                    valid = false;
+                } else {
+                    $('#usernameError').text("");
+                }
+
+                if (!passwordPattern.test(password)) {
+                    $('#passwordError').text("Password must be at least 6 characters long.");
+                    valid = false;
+                } else {
+                    $('#passwordError').text("");
+                }
+
+                if (valid) {
+                    // If form is valid, submit it
+                    this.submit();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to our Website</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #4D276B; /* Background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    text-align: center;
+}
+.login-option {
+    display: inline-block;
+    margin: 20px;
+    cursor: pointer;
+}
+.login-option img {
+    width: 150px; /* Decrease the width and height */
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+.login-option img:hover {
+    transform: scale(1.1);
+}
+.login-option span {
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #fff; /* Text color */
+}
+h1 {
+    color: #fff;
+    font-size: 44px;
+    margin-bottom: 90px;
+}
+    </style>
+</head>
+<body>
+   
+    <div class="container">
+        <h1>Chrondule</h1>
+        <div class="login-option" onclick="redirectToLogin('teacher')">
+            <img src="teaching.png" alt="Teacher">
+            <span>Teaching staff</span>
+        </div>
+        <div class="login-option" onclick="redirectToLogin('administrator')">
+            <img src="administrative.png" alt="Administrator">
+            <span>Administrative staff</span>
+        </div>
+        <div class="login-option" onclick="redirectToLogin('student')">
+            <img src="student.png" alt="Student">
+            <span>Student</span>
+        </div>
+        <div class="login-option" onclick="redirectToLogin('non_teaching')">
+            <img src="nonteaching.png" alt="Non-Teaching">
+            <span>Non-Teaching Staff</span>
+        </div>
+    </div>
+
+    <script>
+        function redirectToLogin(role) {
+            window.location.href = role + "_login.html"; // Redirect to respective login page
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching Staff Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #D1B3FF; /* Background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .dashboard {
+            text-align: center;
+            color: #5D3587; /* Purple text color */
+        }
+        .dashboard button {
+            background-color: #972CDC; /* Purple button background color */
+            color: #fff; /* Button text color */
+            padding: 20px 40px; /* Button padding */
+            margin: 10px;
+            border: none;
+            border-radius: 50px; /* Circular shape */
+            cursor: pointer;
+            font-size: 18px; /* Button font size */
+            transition: background-color 0.3s ease-in-out;
+            display: block; /* Make buttons block elements */
+            width: 100%; /* Full width */
+        }
+        .dashboard button:hover {
+            background-color: #6C63FF; /* Change button color on hover */
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            color: #972CDC; /* Purple text color */
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="dashboard">
+        <h1 style="color: #972CDC;">Teaching Staff Dashboard</h1>
+        <button onclick="redirectTo('schedule')">Schedule</button>
+        <button onclick="redirectTo('task')">Task</button>
+        <button onclick="redirectTo('class_updates')">Class Updates</button>
+        <button onclick="redirectTo('academic_calendar')">Academic Calendar</button>
+        <a href="teacher_login.html" class="back-link">Back to Login</a>
+    </div>
+
+    <script>
+        function redirectTo(page) {
+            // Redirect to respective pages
+            if (page === 'schedule') {
+                window.location.href = 'schedule.html';
+            } else if (page === 'task') {
+                window.location.href = 'task.html';
+            } else if (page === 'class_updates') {
+                window.location.href = 'class_updates.html';
+            } else if (page === 'academic_calendar') {
+                window.location.href = 'academic_calendar.html';
+            }
+        }
+    </script>
+</body>
+</html>
